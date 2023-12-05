@@ -36,6 +36,7 @@ resource "proxmox_lxc" "ferrari" {
   network {
     # Name of the network interface inside the container
     name = "eth0"
+    # Name of the bridge the container is attached to
     bridge = var.fia_vmbr
     ip = var.ferrari_ip
   }
