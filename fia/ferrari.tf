@@ -17,7 +17,7 @@ variable "ferrari_ip" {
 
 resource "proxmox_lxc" "ferrari" {
   target_node = var.fia_node_name
-  hostname = proxmox_lxc.name
+  hostname = var.proxmox_lxc.ferrari.name
   ostemplate = "local:vztmpl/..."
   password = var.master_password
   unprivileged = false
