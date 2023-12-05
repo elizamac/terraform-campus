@@ -2,16 +2,6 @@ resource "docker_image" "twingate" {
   name = "twingate/connector:1"
 }
 
-variable "tfc_access_token" {
-  type = string
-  sensitive = true
-}
-
-variable "tfc_refresh_token" {
-  type = string
-  sensitive = true
-}
-
 resource "docker_container" "tfc-connector" {
   name = "tfc-connector"
   image = docker_image.twingate.image_id
