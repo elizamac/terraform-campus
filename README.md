@@ -1,0 +1,1 @@
+## Terraform configuration for my server in the student accomodation
