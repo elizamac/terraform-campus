@@ -17,7 +17,7 @@ variable "ferrari_ip" {
 
 resource "proxmox_lxc" "ferrari" {
   target_node = var.fia_node_name
-  hostname = proxmox_lxc.name
+  hostname = var.proxmox_lxc.ferrari.name
   ostemplate = "local:vztmpl/..."
   password = var.master_password
   unprivileged = false
@@ -36,6 +36,7 @@ resource "proxmox_lxc" "ferrari" {
   network {
     # Name of the network interface inside the container
     name = "eth0"
+    # Name of the bridge the container is attached to
     bridge = var.fia_vmbr
     ip = var.ferrari_ip
   }
