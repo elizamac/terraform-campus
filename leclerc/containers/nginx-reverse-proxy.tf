@@ -13,7 +13,7 @@ resource "docker_container" "reverse-proxy" {
   restart  = "always"
 
   networks_advanced {
-    name = data.docker_network.proxy-network.id
+    name = data.docker_network.proxy.id
   }
 
   ports {
