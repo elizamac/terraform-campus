@@ -3,7 +3,6 @@ resource "docker_network" "proxy" {
   attachable      = true
   check_duplicate = true
   driver          = "bridge"
-  ipv6            = true
 
   ipam_config {
     gateway  = "172.16.0.1"
