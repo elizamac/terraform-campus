@@ -6,7 +6,8 @@ resource "docker_image" "nginx-reverse-proxy" {
   name = "jc21/nginx-proxy-manager:2.10.4"
 }
 
-resource "docker_containet" "reverse-proxy" {
+resource "docker_container" "reverse-proxy" {
+  name     = "reverse-proxy"
   image    = docker_image.nginx-reverse-proxy.image_id
   hostname = "proxy-manager"
   restart  = "always"
