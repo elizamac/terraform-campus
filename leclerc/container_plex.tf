@@ -69,8 +69,8 @@ resource "docker_container" "plex" {
 
   mounts {
     type   = "bind"
-    target = "/mnt/media/transcode"
-    source = "/transcode"
+    target = "/transcode"
+    source = "/mnt/media/transcode"
   }
 
   dynamic "ports" {
