@@ -1,7 +1,3 @@
-data "docker_network" "proxy" {
-  name = "proxy"
-}
-
 resource "docker_image" "nginx-reverse-proxy" {
   name = "jc21/nginx-proxy-manager:2.10.4"
 }
@@ -13,7 +9,7 @@ resource "docker_container" "reverse-proxy" {
   restart  = "always"
 
   networks_advanced {
-    name = data.docker_network.proxy.id
+    name = docker_network.proxy.id
   }
 
   ports {
