@@ -1,5 +1,5 @@
 resource "docker_image" "plex" {
-  name = "linuxserver/plex:latest"
+  name = "plexinc/pms-docker:latest"
 }
 
 variable "plex_claim" {
@@ -50,7 +50,7 @@ resource "docker_container" "plex" {
   image    = docker_image.plex.image_id
   restart  = "always"
 
-  env = ["PUID=1000", "PGID=1000", "TZ=Europe/Dublin", "VERSION=docker", "PLEX_CLAIM=${var.plex_claim}"]
+  env = ["TZ=Europe/Dublin", "PLEX_CLAIM=${var.plex_claim}"]
 
   networks_advanced {
     name = docker_network.proxy.id
@@ -64,7 +64,13 @@ resource "docker_container" "plex" {
   mounts {
     type   = "bind"
     target = "/mnt/media"
-    source = "/mnt/media"
+    source = "/data"
+  }
+
+  mounts {
+    type   = "bind"
+    target = "/mnt/media/transcode"
+    source = "/transcode"
   }
 
   dynamic "ports" {
