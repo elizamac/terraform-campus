@@ -11,3 +11,7 @@ resource "docker_network" "proxy" {
     ip_range = "172.16.0.0/24"
   }
 }
+
+data "docker_network" "proxy" {
+  name = "proxy"
+}
