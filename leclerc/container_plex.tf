@@ -63,8 +63,8 @@ resource "docker_container" "plex" {
 
   mounts {
     type   = "bind"
-    target = "/mnt/media"
-    source = "/data"
+    target = "/data"
+    source = "/mnt/media"
   }
 
   mounts {
