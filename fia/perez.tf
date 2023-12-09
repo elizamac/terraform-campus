@@ -9,9 +9,9 @@ resource "proxmox_lxc" "perez" {
   vmid        = 202
   clone       = 921
   full        = true
-
-  onboot = true
-  start  = true
+  force       = true
+  onboot      = true
+  start       = true
 
   mountpoint {
     key     = "1"
