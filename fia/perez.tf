@@ -19,6 +19,7 @@ resource "proxmox_lxc" "perez" {
     storage = "/mnt/data"
     volume  = "/mnt/data"
     mp      = "/mnt/data"
+    size    = "300G"
   }
 
   network {
