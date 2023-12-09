@@ -1,4 +1,4 @@
-data "docker_network" "proxy-network" {
+data "docker_network" "proxy" {
   name = "proxy"
 }
 
