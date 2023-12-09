@@ -2,7 +2,7 @@ resource "docker_network" "proxy" {
   name            = "proxy"
   attachable      = true
   check_duplicate = true
-  driver          = bridge
+  driver          = "bridge"
   ipv6            = true
 
   ipam_config {
