@@ -70,9 +70,9 @@ resource "docker_container" "plex" {
   dynamic "ports" {
     for_each = var.ports_list
     content {
-      internal = ports.value[0]
-      external = ports.value[0]
-      protocol = ports.value[1]
+      internal = ports.value["port"]
+      external = ports.value["port"]
+      protocol = ports.value["protocol"]
     }
   }
 }
