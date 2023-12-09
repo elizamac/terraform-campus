@@ -1,5 +1,5 @@
 resource "docker_image" "plex" {
-  name = "plex"
+  name = "linuxserver/plex:latest"
 }
 
 variable "plex_claim" {
