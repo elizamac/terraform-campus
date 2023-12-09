@@ -31,13 +31,11 @@ resource "docker_container" "reverse-proxy" {
   }
 
   mounts {
+    type   = "volume"
     target = "/data"
-    type   = "bind"
-    source = "/mnt/data/docker/nginx-proxy-manager/data"
   }
   mounts {
+    type   = "volume"
     target = "/etc/letsencrypt"
-    type   = "bind"
-    source = "/mnt/data/docker/nginx-proxy-manager/letsencrypt"
   }
 }
