@@ -86,16 +86,39 @@ resource "docker_container" "panel" {
 
   mounts {
     type = "volume"
-    target = "/app"
+    target = "/app/var"
+    volume_options {
+      labels {
+        label = "service"
+        value = "pterodactyl"
+      }
+    }
+  }
+
+  mounts {
+    type = "volume"
+    target = "/app/storage/logs"
+    volume_options {
+      labels {
+        label = "service"
+        value = "pterodactyl"
+      }
+    }
   }
 
   mounts {
     type = "volume"
     target = "/etc/nginx/conf.d"
+    volume_options {
+      labels {
+        label = "service"
+        value = "pterodactyl"
+      }
+    }
   }
 
   env = [
-    "APP_URL=https://leclerc.elizamac.lan:25643",
+    #"APP_URL=https://leclerc.elizamac.lan:25643",
     "APP_TIMEZONE=Europe/Dublin",
     "DB_PASSWORD=${var.db-password}",
     "APP_ENV=production",
