@@ -7,31 +7,31 @@ resource "docker_image" "database" {
 }
 
 resource "docker_image" "cache" {
-  name = "redis:7.2.3-alpine"  
+  name = "redis:7.2.3-alpine"
 }
 
 variable "db-password" {
-  type = string
+  type    = string
   default = "pt!pass"
 }
 
 variable "db-root-password" {
-  type = string
+  type    = string
   default = "root!pass"
 }
 
 resource "docker_container" "database" {
-  name = "pt-database"
-  image = docker_image.database.image_id
+  name     = "pt-database"
+  image    = docker_image.database.image_id
   hostname = "database"
-  restart = "always"
+  restart  = "always"
 
   networks_advanced {
     name = docker_network.pt-backend.id
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/var/lib/mysql"
   }
 
@@ -48,10 +48,10 @@ resource "docker_container" "database" {
 }
 
 resource "docker_container" "cache" {
-  name = "pt-cache"
-  image = docker_image.cache.image_id
+  name     = "pt-cache"
+  image    = docker_image.cache.image_id
   hostname = "cache"
-  restart = "always"
+  restart  = "always"
 
   networks_advanced {
     name = docker_network.pt-backend.id
@@ -59,10 +59,10 @@ resource "docker_container" "cache" {
 }
 
 resource "docker_container" "panel" {
-  name = "pt-panel"
-  image = docker_image.panel.image_id
+  name     = "pt-panel"
+  image    = docker_image.panel.image_id
   hostname = "pt-panel"
-  restart = "always"
+  restart  = "always"
 
   networks_advanced {
     name = docker_network.pt-backend.id
@@ -85,7 +85,7 @@ resource "docker_container" "panel" {
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/app/var"
     volume_options {
       labels {
@@ -96,7 +96,7 @@ resource "docker_container" "panel" {
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/app/storage/logs"
     volume_options {
       labels {
@@ -107,7 +107,7 @@ resource "docker_container" "panel" {
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/etc/nginx/conf.d"
     volume_options {
       labels {
