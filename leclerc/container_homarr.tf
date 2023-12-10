@@ -3,10 +3,10 @@ resource "docker_image" "homarr" {
 }
 
 resource "docker_container" "homarr" {
-  name = "homarr"
-  image = docker_image.homarr.image_id
+  name     = "homarr"
+  image    = docker_image.homarr.image_id
   hostname = "homarr"
-  restart = "always"
+  restart  = "always"
 
   networks_advanced {
     name = docker_network.proxy.id
@@ -19,19 +19,19 @@ resource "docker_container" "homarr" {
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/app"
   }
 
   mounts {
-    type = "volume"
+    type   = "volume"
     target = "/data"
   }
 
   mounts {
-    type = "bind"
-    target = "/var/run/docker.sock"
-    source = "/var/run/docker.sock"
+    type      = "bind"
+    target    = "/var/run/docker.sock"
+    source    = "/var/run/docker.sock"
     read_only = true
   }
 }
