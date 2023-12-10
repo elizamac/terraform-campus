@@ -31,8 +31,9 @@ resource "docker_container" "database" {
   }
 
   mounts {
-    type   = "volume"
+    type   = "bind"
     target = "/var/lib/mysql"
+    source = "/srv/pterodactyl/database"
   }
 
   env = [
@@ -102,7 +103,7 @@ resource "docker_container" "panel" {
 
   mounts {
     type = "bind"
-    target = "/etc/letsencrypt"
+    target = ""
     source = "/srv/pterodactyl/certs"
   }
 
