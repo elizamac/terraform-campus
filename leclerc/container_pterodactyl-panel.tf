@@ -89,25 +89,21 @@ resource "docker_container" "panel" {
   }
 
   mounts {
-    type   = "volume"
+    type   = "bind"
     target = "/app/var"
-    volume_options {
-      labels {
-        label = "service"
-        value = "pterodactyl"
-      }
-    }
+    source = "/srv/pterodactyl/var"
   }
 
   mounts {
-    type   = "volume"
+    type = "bind"
     target = "/app/storage/logs"
-    volume_options {
-      labels {
-        label = "service"
-        value = "pterodactyl"
-      }
-    }
+    source = "/srv/pterodactyl/logs"
+  }
+
+  mounts {
+    type = "bind"
+    target = "/etc/letsencrypt"
+    source = "/srv/pterodactyl/certs"
   }
 
   mounts {
