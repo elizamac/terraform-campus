@@ -24,6 +24,7 @@ resource "docker_container" "wing0" {
 
   networks_advanced {
     name = docker_network.pt-wings.id
+    ipv4_address = "172.19.77.50"
   }
 
   networks_advanced {
