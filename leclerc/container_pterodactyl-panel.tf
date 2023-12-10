@@ -103,7 +103,7 @@ resource "docker_container" "panel" {
 
   mounts {
     type = "bind"
-    target = ""
+    target = "/etc/letsencrypt"
     source = "/srv/pterodactyl/certs"
   }
 
