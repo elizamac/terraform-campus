@@ -2,6 +2,19 @@ resource "docker_image" "wing" {
   name = "ghcr.io/pterodactyl/wings:v1.11.8"
 }
 
+resource "docker_network" "wing0" {
+  name            = "wing0"
+  attachable      = true
+  check_duplicate = true
+  driver          = "bridge"
+
+  ipam_config {
+    gateway  = "172.20.0.1"
+    ip_range = "172.20.0.0/24"
+    subnet   = "172.20.0.0/24"
+  }
+}
+
 resource "docker_container" "wing0" {
   name     = "wing0"
   image    = docker_image.wing.image_id
@@ -11,6 +24,10 @@ resource "docker_container" "wing0" {
 
   networks_advanced {
     name = docker_network.pt-wings.id
+  }
+
+  networks_advanced {
+    name = docker_network.wing0.id
   }
 
   env = [
