@@ -31,6 +31,18 @@ resource "docker_container" "wing0" {
     name = docker_network.wing0.id
   }
 
+  ports {
+    internal = "8080"
+    external = "8080"
+    protocol = "tcp"
+  }
+  
+  ports {
+    internal = "2022"
+    external = "2022"
+    protocol = "tcp"
+  }
+
   env = [
     "TZ=Europe/Dublin",
     "WINGS_UID=988",
