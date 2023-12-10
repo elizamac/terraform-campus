@@ -69,6 +69,10 @@ resource "docker_container" "panel" {
   }
 
   networks_advanced {
+    name = docker_network.pt-wings.id
+  }
+
+  networks_advanced {
     name = docker_network.proxy.id
   }
 
