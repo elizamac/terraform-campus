@@ -10,7 +10,7 @@ resource "docker_container" "wing0" {
   tty      = true
 
   networks_advanced {
-    name = docker_network.pt-backend.id
+    name = docker_network.pt-wings.id
   }
 
   env = [
