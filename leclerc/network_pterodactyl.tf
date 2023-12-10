@@ -3,10 +3,11 @@ resource "docker_network" "pt-backend" {
   attachable      = true
   check_duplicate = true
   driver          = "bridge"
+}
 
-  ipam_config {
-    gateway  = "172.16.45.1"
-    subnet   = "172.16.45.0/24"
-    ip_range = "172.16.45.0/24"
-  }
+resource "docker_network" "pt-wings" {
+  name            = "pt-wings"
+  attachable      = true
+  check_duplicate = true
+  driver          = "bridge"
 }
