@@ -77,11 +77,7 @@ resource "docker_container" "wing0" {
     target = "/var/log/pterodactyl/"
     source = "/var/log/pterodactyl/"
   }
-  mounts {
-    type   = "bind"
-    target = "/tmp/pterodactyl/"
-    source = "/tmp/pterodactyl/"
-  }
+
   mounts {
     type   = "bind"
     target = "/etc/ssl/certs:ro"
