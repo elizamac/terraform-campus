@@ -51,7 +51,7 @@ resource "docker_container" "wing0" {
   ]
 
   mounts {
-    type = "/bind"
+    type = "bind"
     target = "/mnt/games"
     source = "/mnt/games"
   }
