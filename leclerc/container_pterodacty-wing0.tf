@@ -46,9 +46,15 @@ resource "docker_container" "wing0" {
   env = [
     "TZ=Europe/Dublin",
     "WINGS_UID=988",
-    "WINGS_GID=988",
+    "WINGS_GID=1000",
     "WINGS_USERNAME=pterodactyl"
   ]
+
+  mounts {
+    type = "bind"
+    target = "/mnt/games"
+    source = "/mnt/games"
+  }
 
   mounts {
     type   = "bind"
