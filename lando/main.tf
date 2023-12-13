@@ -1,3 +1,3 @@
 module "ldap" {
-  source = "modules/docker"
+  source = "./modules/docker"
 }
