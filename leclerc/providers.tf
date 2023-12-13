@@ -14,14 +14,3 @@ terraform {
 provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
-
-variable "master_password" {
-  type      = string
-  sensitive = true
-  default   = ""
-}
-provider "linux" {
-  host     = "10.94.117.21"
-  user     = "root"
-  password = var.master_password
-}
