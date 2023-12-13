@@ -9,7 +9,7 @@ resource "proxmox_lxc" "perez" {
   vmid        = 202
   clone       = 921
   full        = true
-  force       = true
+  force       = false
   onboot      = true
   start       = true
 
