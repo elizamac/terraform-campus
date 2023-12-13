@@ -20,8 +20,3 @@ variable "master_password" {
   sensitive = true
   default   = ""
 }
-provider "linux" {
-  host     = "10.94.117.21"
-  user     = "root"
-  password = var.master_password
-}
