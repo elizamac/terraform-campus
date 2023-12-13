@@ -1,3 +1,3 @@
 module "docker" {
-  source = "modules/docker"
+  source = "./modules/docker"
 }
