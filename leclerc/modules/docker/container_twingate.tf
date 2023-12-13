@@ -5,13 +5,13 @@ resource "docker_image" "twingate" {
 variable "twingate_access_token" {
   type      = string
   sensitive = true
-  default = ""
+  default   = ""
 }
 
 variable "twingate_refresh_token" {
   type      = string
   sensitive = true
-  default = ""
+  default   = ""
 }
 
 resource "docker_container" "twingate-connector" {
@@ -21,5 +21,6 @@ resource "docker_container" "twingate-connector" {
 
   network_mode = "host"
   restart      = "always"
-  env          = ["TWINGATE_NETWORK=elizamac", "TWINGATE_LABEL_HOSTNAME=`hostname`", "TWINGATE_ACCESS_TOKEN=${var.twingate_access_token}", "TWINGATE_REFRESH_TOKEN=${var.twingate_refresh_token}"]
+  env          = ["TWINGATE_NETWORK=elizamac", "TWINGATE_LABEL_HOSTNAME=lando-connector", "TWINGATE_ACCESS_TOKEN=${var.twingate_access_token}", "TWINGATE_REFRESH_TOKEN=${var.twingate_refresh_token}"]
+
 }
