@@ -29,15 +29,3 @@ provider "proxmox" {
   pm_api_token_secret = var.fia_api_token_secret
   pm_tls_insecure     = true
 }
-
-variable "master_password" {
-  type      = string
-  sensitive = true
-  default   = ""
-}
-
-provider "linux" {
-  host     = "10.94.117.21"
-  user     = "root"
-  password = var.master_password
-}
