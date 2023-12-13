@@ -5,7 +5,7 @@ terraform {
       version = "3.0.2"
     }
     linux = {
-      source = "mavidser/linux"
+      source  = "mavidser/linux"
       version = "1.0.2"
     }
   }
@@ -16,12 +16,12 @@ provider "docker" {
 }
 
 variable "master_password" {
-  type = string
+  type      = string
   sensitive = true
-  default = ""
+  default   = ""
 }
 provider "linux" {
-  host = "10.94.117.21"
-  user = "root"
+  host     = "10.94.117.21"
+  user     = "root"
   password = var.master_password
 }
