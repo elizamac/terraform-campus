@@ -19,13 +19,15 @@ resource "docker_container" "homarr" {
   }
 
   mounts {
-    type   = "volume"
+    type   = "bind"
     target = "/app"
+    source = "/mnt/docker-data/homarr/app"
   }
 
   mounts {
-    type   = "volume"
+    type   = "bind"
     target = "/data"
+    source = "/mnt/docker-data/homarr/data"
   }
 
   mounts {
