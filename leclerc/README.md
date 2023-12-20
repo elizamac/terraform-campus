@@ -6,6 +6,14 @@ Leclerc [(Charles Leclerc on Wikipedia)](https://en.wikipedia.org/wiki/Charles_L
 
 I am running the Twingate connector to get remote access to the services running inside the internal network without being connected physically to the server.
 
-## Nginx Proxy Manager
+## Homarr
 
-Proxy manager used to redirect internal traffic to the correct ports
+Homepage for all the other services.
+
+## Pterodactyl
+
+Interface for running game servers.
+
+## Plex
+
+Media server for hosting movies and shows
