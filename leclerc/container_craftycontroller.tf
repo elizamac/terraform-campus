@@ -11,7 +11,10 @@ resource "docker_network" "crafty-macvlan" {
     gateway  = "10.94.117.1"
     ip_range = "10.94.117.34/32"
   }
-  options = ["parent=vmbr1"]
+  options = {
+    parent       = "vmbr1"
+    macvlan_mode = "bridge"
+  }
 }
 
 resource "docker_container" "crafty" {
@@ -20,14 +23,14 @@ resource "docker_container" "crafty" {
   hostname = "crafty"
   restart  = "always"
 
-  env = [ "TZ=Europe/Dublin" ]
+  env = ["TZ=Europe/Dublin"]
 
   networks_advanced {
     name = docker_network.crafty-macvlan.id
   }
 
   mounts {
-    type = "bind"
+    type   = "bind"
     target = "/crafty"
     source = "/opt/crafty"
   }
