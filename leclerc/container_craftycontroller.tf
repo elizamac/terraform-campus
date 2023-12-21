@@ -12,7 +12,7 @@ resource "docker_network" "crafty-macvlan" {
     ip_range = "10.94.117.34/32"
   }
   options = {
-    parent       = "vmbr1"
+    parent       = "eth0"
     macvlan_mode = "bridge"
   }
 }
