@@ -11,6 +11,7 @@ resource "docker_network" "crafty-macvlan" {
     gateway  = "10.94.117.1"
     ip_range = "10.94.117.34/32"
   }
+  ipam_driver = "macvlan"
   ipam_options = ["parent=vmbr1"]
 }
 
@@ -21,6 +22,10 @@ resource "docker_container" "crafty" {
   restart  = "always"
 
   env = [ "TZ=Europe/Dublin" ]
+
+  networks_advanced {
+    name = docker_network.crafty-macvlan.id
+  }
 
   mounts {
     type = "bind"
@@ -50,7 +55,7 @@ resource "docker_container" "crafty" {
   }
 
   dynamic "ports" {
-    for_each = range(255000, 25600)
+    for_each = range(25500, 25600)
     content {
       internal = ports.value
       external = ports.value
