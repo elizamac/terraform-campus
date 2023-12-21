@@ -11,8 +11,7 @@ resource "docker_network" "crafty-macvlan" {
     gateway  = "10.94.117.1"
     ip_range = "10.94.117.34/32"
   }
-  ipam_driver = "macvlan"
-  ipam_options = ["parent=vmbr1"]
+  options = ["parent=vmbr1"]
 }
 
 resource "docker_container" "crafty" {
