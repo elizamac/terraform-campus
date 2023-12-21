@@ -31,8 +31,28 @@ resource "docker_container" "crafty" {
 
   mounts {
     type   = "bind"
-    target = "/crafty"
-    source = "/opt/crafty"
+    target = "/crafty/backups"
+    source = "/backups"
+  }
+  mounts {
+    type   = "bind"
+    target = "/crafty/logs"
+    source = "/logs"
+  }
+  mounts {
+    type   = "bind"
+    target = "/crafty/servers"
+    source = "/servers"
+  }
+  mounts {
+    type   = "bind"
+    target = "/crafty/app/config"
+    source = "/config"
+  }
+  mounts {
+    type   = "bind"
+    target = "/crafty/import"
+    source = "/import"
   }
 
   ports {
