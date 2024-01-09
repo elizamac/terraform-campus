@@ -57,12 +57,12 @@ resource "docker_container" "crafty" {
 
   ports {
     internal = "8000"
-    external = "9000"
+    external = "8000"
     protocol = "tcp"
   }
   ports {
     internal = "8443"
-    external = "9443"
+    external = "8443"
     protocol = "tcp"
   }
   ports {
@@ -77,7 +77,7 @@ resource "docker_container" "crafty" {
   }
 
   dynamic "ports" {
-    for_each = range(25500, 25600)
+    for_each = range(25520, 25529)
     content {
       internal = ports.value
       external = ports.value
