@@ -14,6 +14,12 @@ resource "docker_container" "code-server" {
     target = "/config"
   }
 
+  mounts {
+    type = "bind"
+    source = "/mnt/docker-data/code-server/data"
+    target = "/data"
+  }
+
   ports {
     internal = "8443"
     external = "8200"
