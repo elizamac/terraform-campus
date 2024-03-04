@@ -16,11 +16,4 @@ provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
 
-variable "cf_api_token" {
-  type = string
-  sensitive = true
-  default = ""
-}
-provider "cloudflare" {
-  api_token = var.cf_api_token
-}
+provider "cloudflare" {}
