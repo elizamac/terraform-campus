@@ -26,8 +26,8 @@ resource "docker_container" "code-server" {
   }
 
   env = [
-    "PUID=1000",
-    "GUID=1000",
+    "PUID=1002",
+    "GUID=1002",
     "TZ=Europe/Dublin",
     "SUDO_PASSWORD_HASH=$argon2i$v=19$m=4096,t=3,p=1$5lf2cIzhV6xgWOpsVqXc7g$O/poBBK3NnMh50VgbrPjAOg0HDYVh83yqGyb7rzHRyc"
   ]
