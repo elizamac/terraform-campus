@@ -1,5 +1,9 @@
 resource "docker_image" "vscode" {
-  name = "linuxserver/code-server:4.22.0"
+  name = "custom-code-server"
+  build {
+    context = "custom-code-server"
+    tag = ["custom-code-server:4.22.0"]
+  }
 }
 
 resource "docker_container" "code-server" {
