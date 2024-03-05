@@ -1,5 +1,5 @@
 resource "docker_image" "homarr" {
-  name = "ghcr.io/ajnart/homarr:0.14.2"
+  name = "ghcr.io/ajnart/homarr:0.15.0"
 }
 
 resource "docker_container" "homarr" {
