@@ -1,5 +1,5 @@
 resource "docker_image" "twingate" {
-  name = "twingate/connector:1"
+  name = "twingate/connector:1.63.0"
 }
 
 variable "twingate_access_token" {

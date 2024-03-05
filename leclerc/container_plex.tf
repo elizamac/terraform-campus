@@ -1,5 +1,10 @@
-resource "docker_image" "plex" {
+data "docker_registry_image" "plex" {
   name = "plexinc/pms-docker:latest"
+}
+
+resource "docker_image" "plex" {
+  name = data.docker_registry_image.plex.name
+  pull_triggers = [data.docker_registry_image.plex.sha256_digest]
 }
 
 variable "plex_claim" {
