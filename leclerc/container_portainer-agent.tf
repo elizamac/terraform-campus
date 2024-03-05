@@ -1,5 +1,5 @@
 resource "docker_image" "port-agent" {
-  name = "portainer/agent:2.18.3"
+  name = "portainer/agent:2.19.4"
 }
 
 resource "docker_container" "portainer-agent" {
