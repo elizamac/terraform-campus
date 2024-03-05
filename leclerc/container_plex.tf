@@ -60,6 +60,21 @@ resource "docker_container" "plex" {
   networks_advanced {
     name = docker_network.proxy.id
   }
+  
+  labels {
+    label = "wud.watch"
+    value = "true"
+  }
+
+  labels {
+    label = "wud.display.name"
+    value = "Plex"
+  }
+
+  labels {
+    label = "wud.display.icon"
+    value = "si:plex"
+  }
 
   mounts {
     type   = "volume"
