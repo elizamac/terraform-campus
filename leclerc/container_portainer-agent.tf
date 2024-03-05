@@ -8,6 +8,26 @@ resource "docker_container" "portainer-agent" {
   hostname = "portainer"
   restart = "always"
 
+  labels {
+    label = "wud.watch"
+    value = "true"
+  }
+
+  labels {
+    label = "wud.display.name"
+    value = "Portainer Agent"
+  }
+
+  labels {
+    label = "wud.display.icon"
+    value = "si:Portainer"
+  }
+
+  labels {
+    label = "wud.tag.include"
+    value = "^\\d+\\.\\d+\\.\\d+$"
+  }
+
   mounts {
     type = "bind"
     target = "/var/run/docker.sock"
