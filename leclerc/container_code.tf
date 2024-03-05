@@ -11,6 +11,16 @@ resource "docker_container" "code-server" {
   image = docker_image.vscode.image_id
   hostname = "code"
   restart = "always"
+    
+  labels {
+    label = "wud.watch"
+    value = "true"
+  }
+
+  labels {
+    label = "wud.display.name"
+    value = "VSCode"
+  }
 
   mounts {
     type = "bind"

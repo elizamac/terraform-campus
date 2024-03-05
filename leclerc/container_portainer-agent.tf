@@ -20,7 +20,7 @@ resource "docker_container" "portainer-agent" {
 
   labels {
     label = "wud.display.icon"
-    value = "si:Portainer"
+    value = "si:portainer"
   }
 
   labels {
