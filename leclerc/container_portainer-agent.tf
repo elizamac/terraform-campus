@@ -9,22 +9,22 @@ resource "docker_container" "portainer-agent" {
   restart = "always"
 
   labels {
-    key = "wud.watch"
+    label = "wud.watch"
     value = "true"
   }
 
   labels {
-    key = "wud.display.name"
+    label = "wud.display.name"
     value = "Portainer Agent"
   }
 
   labels {
-    key = "wud.display.icon"
+    label = "wud.display.icon"
     value = "si:Portainer"
   }
 
   labels {
-    key = "wud.tag.include"
+    label = "wud.tag.include"
     value = "^\\d+\\.\\d+\\.\\d+$"
   }
 
