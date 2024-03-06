@@ -1,5 +1,10 @@
-resource "docker_image" "plex" {
+data "docker_registry_image" "plex" {
   name = "plexinc/pms-docker:latest"
+}
+
+resource "docker_image" "plex" {
+  name = data.docker_registry_image.plex.name
+  pull_triggers = [data.docker_registry_image.plex.sha256_digest]
 }
 
 variable "plex_claim" {
@@ -54,6 +59,21 @@ resource "docker_container" "plex" {
 
   networks_advanced {
     name = docker_network.proxy.id
+  }
+  
+  labels {
+    label = "wud.watch"
+    value = "true"
+  }
+
+  labels {
+    label = "wud.display.name"
+    value = "Plex"
+  }
+
+  labels {
+    label = "wud.display.icon"
+    value = "si:plex"
   }
 
   mounts {

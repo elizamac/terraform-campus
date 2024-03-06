@@ -2,7 +2,7 @@ resource "docker_image" "vscode" {
   name = "custom-code-server"
   build {
     context = "custom-code-server"
-    tag = ["custom-code-server:4.22.0"]
+    tag = ["custom-code-server:4.22.0-1.1"]
   }
 }
 
@@ -11,6 +11,16 @@ resource "docker_container" "code-server" {
   image = docker_image.vscode.image_id
   hostname = "code"
   restart = "always"
+    
+  labels {
+    label = "wud.watch"
+    value = "true"
+  }
+
+  labels {
+    label = "wud.display.name"
+    value = "VSCode"
+  }
 
   mounts {
     type = "bind"
