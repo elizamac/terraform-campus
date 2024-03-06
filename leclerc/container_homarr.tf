@@ -20,8 +20,8 @@ resource "docker_container" "homarr" {
 
   mounts {
     type   = "bind"
-    target = "/app"
-    source = "/mnt/docker-data/homarr/app"
+    target = "/app/data/configs"
+    source = "/mnt/docker-data/homarr/configs"
   }
 
   mounts {
