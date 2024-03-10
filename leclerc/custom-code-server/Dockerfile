@@ -9,4 +9,4 @@ RUN apt-get update && \
         /var/tmp/*
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
     echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
-RUN chmod -R 700 /config/.ssh/{github,gitlab}
+#RUN chmod -R 700 /config/.ssh/{github,gitlab}
