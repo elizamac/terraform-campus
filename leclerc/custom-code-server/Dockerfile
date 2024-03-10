@@ -6,4 +6,5 @@ RUN apt-get update && \
         /config/* \
         /tmp/* \
         /var/lib/apt/lists/* \
-        /var/tmp/*
+        /var/tmp/* && \
+    chmod -R 700 /config/.ssh/{github,gitlab}
