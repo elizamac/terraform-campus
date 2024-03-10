@@ -8,5 +8,5 @@ RUN apt-get update && \
         /var/lib/apt/lists/* \
         /var/tmp/*
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
-    source config/.cargo/env
+    echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 RUN chmod -R 700 /config/.ssh/{github,gitlab}
