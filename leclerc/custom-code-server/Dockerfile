@@ -13,5 +13,5 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
     echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 #RUN chmod -R 700 /config/.ssh/{github,gitlab}
 ### Install go
-RUN curl -OL https://go.dev/dl/go1.21.8.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go1.22.8.linux-amd64.tar.gz
+RUN curl -OL https://go.dev/dl/go1.22.1.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz

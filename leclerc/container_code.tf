@@ -2,7 +2,7 @@ resource "docker_image" "vscode" {
   name = "custom-code-server"
   build {
     context = "custom-code-server"
-    tag = ["custom-code-server:4.22.0-3.1"]
+    tag = ["custom-code-server:4.22.0-3.2"]
   }
 }
 
