@@ -1,7 +1,7 @@
 FROM linuxserver/code-server:4.22.0
 ### Install packages
 RUN apt-get update && \
-    apt-get install -y openjdk-19-jdk vim build-essential && \
+    apt-get install -y openjdk-19-jdk vim build-essential tar && \
     apt-get clean && \
     rm -rf \
         /config/* \
