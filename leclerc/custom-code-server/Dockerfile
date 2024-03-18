@@ -12,6 +12,8 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 ### Install Go
 RUN curl -OL https://go.dev/dl/go1.22.1.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
+### Install Python
+RUN apt-get install -y python3.10
 ### Cleanup apt caches
 RUN apt-get clean && \
     rm -rf \
