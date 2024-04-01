@@ -35,8 +35,8 @@ resource "docker_container" "grocy" {
   }
 
   ports {
-    internal = "9238"
-    external = "80"
+    internal = "80"
+    external = "9238"
     protocol = "tcp"
   }
 }
