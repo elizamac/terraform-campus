@@ -15,11 +15,6 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 #    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
 ### Install Python
 RUN apt-get install -y python3.10
-### Add Terraform repo
-RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
-### Install Terraform
-RUN apt-get update && apt-get install -y terraform
 ### Cleanup apt caches
 RUN apt-get clean && \
     rm -rf \
