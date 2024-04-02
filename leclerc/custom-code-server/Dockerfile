@@ -2,7 +2,7 @@ FROM linuxserver/code-server:4.22.0
 ### Update repos
 RUN apt-get update
 ### Install JDK and VIM
-RUN apt-get install -y openjdk-19-jdk vim wget gpg tee
+RUN apt-get install -y openjdk-19-jdk vim wget gpg
 ### Install Rust dependencies
 RUN apt-get install -y build-essential
 ### Install Rust tools
