@@ -10,9 +10,13 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
     echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
 #RUN chmod -R 700 /config/.ssh/{github,gitlab}
 ### Install Go
-RUN curl -OL https://go.dev/dl/go1.22.1.linux-amd64.tar.gz && \
-    rm -rf /usr/local/go && \
-    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
+#RUN curl -OL https://go.dev/dl/go1.22.1.linux-amd64.tar.gz && \
+#    rm -rf /usr/local/go && \
+#    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
+### Install Terraform
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+RUN apt-get update && apt-get install -y terraform
 ### Install Python
 RUN apt-get install -y python3.10
 ### Cleanup apt caches
