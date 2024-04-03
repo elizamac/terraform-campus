@@ -91,7 +91,7 @@ resource "docker_container" "reverse-proxy" {
           http:
             redirections:
               entryPoint:
-                to: "https"
+                to: "https-int"
                 scheme: "https"
                 permanent: true
         https-int:
@@ -101,7 +101,7 @@ resource "docker_container" "reverse-proxy" {
           http:
             redirections:
               entryPoint:
-                to: "https"
+                to: "https-ext"
                 scheme: "https"
                 permanent: true
         https-ext:
