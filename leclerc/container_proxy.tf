@@ -16,7 +16,7 @@ resource "docker_container" "reverse-proxy" {
 
   mounts {
     source = "/mnt/docker-data/traefik"
-    destination = "/etc/traefik"
+    target = "/etc/traefik"
     type = "bind"
   }
 
