@@ -14,7 +14,7 @@ resource "docker_container" "homarr" {
 
   ports {
     internal = "7575"
-    external = "80"
+    external = "8210"
     protocol = "tcp"
   }
 
