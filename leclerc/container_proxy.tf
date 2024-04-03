@@ -93,7 +93,7 @@ resource "docker_container" "reverse-proxy" {
               entryPoint:
                 to: "https"
                 scheme: "https"
-              permanent: true
+                permanent: true
         https-int:
           address: ":443"
         http-ext:
@@ -103,7 +103,7 @@ resource "docker_container" "reverse-proxy" {
               entryPoint:
                 to: "https"
                 scheme: "https"
-              permanent: true
+                permanent: true
         https-ext:
           address: ":444"
 
