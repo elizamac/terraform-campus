@@ -8,6 +8,11 @@ resource "docker_container" "reverse-proxy" {
   hostname = "proxy"
   restart = "always"
 
+  networks_advanced {
+    name = "proxy"
+    ipv4_address = "172.16.38.50"
+  }
+
   mounts {
     source = "/var/run/docker.sock"
     target = "/var/run/docker.sock"
