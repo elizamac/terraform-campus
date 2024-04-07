@@ -66,7 +66,7 @@ resource "docker_container" "reverse-proxy" {
     for_each = {
       "traefik.enable"                           = "true"
       "traefik.http.routers.traefik.rule"        = "Host(`traefik-ie.${var.domain}`)"
-      "traefik.http.routers.traefik.entrypoints" = "http-int, https-int"
+      "traefik.http.routers.traefik.entrypoints" = "http-ext, https-ext"
       "traefik.http.routers.traefik.service"     = "api@internal"
     }
 
