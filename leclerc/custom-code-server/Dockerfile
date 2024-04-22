@@ -16,7 +16,7 @@ RUN wget https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_am
     unzip terraform_1.7.5_linux_amd64.zip && \
     mv terraform /usr/bin/
 ### Install Python
-RUN apt-get install -y python3.10
+RUN apt-get install -y python3.10 python3-pip
 ### Install Go
 RUN curl -OL https://go.dev/dl/go1.22.1.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
