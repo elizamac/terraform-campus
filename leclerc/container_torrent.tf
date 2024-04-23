@@ -11,8 +11,8 @@ variable "master_password" {
 resource "docker_container" "transmission" {
   name     = "transmission"
   image    = docker_image.torrent.image_id
-  hostname = transmission
-  restart  = always
+  hostname = "transmission"
+  restart  = "always"
 
   labels {
     label = "wud.wathc"
