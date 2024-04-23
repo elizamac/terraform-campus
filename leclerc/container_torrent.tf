@@ -2,7 +2,7 @@ resource "docker_image" "torrent" {
   name = "linuxserver/transmission:4.0.5"
 }
 
-variable "torrent_pass" {
+variable "master_password" {
   type      = string
   sensitive = true
   default   = ""
@@ -69,6 +69,6 @@ resource "docker_container" "transmission" {
     "PUID=1000",
     "PGID=1000",
     "USER=eliza",
-    "PASS=${var.torrent_pass}"
+    "PASS=${var.master_password}"
   ]
 }
