@@ -3,10 +3,10 @@ resource "docker_image" "grocy" {
 }
 
 resource "docker_container" "grocy" {
-  name = "grocy"
-  image = docker_image.grocy.image_id
+  name     = "grocy"
+  image    = docker_image.grocy.image_id
   hostname = "grocy"
-  restart = "always"
+  restart  = "always"
 
   labels {
     label = "wud.watch"
@@ -29,7 +29,7 @@ resource "docker_container" "grocy" {
   }
 
   mounts {
-    type = "bind"
+    type   = "bind"
     target = "/config"
     source = "/mnt/docker-data/grocy/config"
   }
